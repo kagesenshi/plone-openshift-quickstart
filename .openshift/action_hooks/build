@@ -15,9 +15,9 @@ then
     pushd ${OPENSHIFT_REPO_DIR}
 
     # create some dirs
-    if [ ! -d ${OPENSHIFT_TMP_DIR}/cache/ ]
+    if [ ! -d ${OPENSHIFT_TMP_DIR}/${OPENSHIFT_APP_UUID}-cache/ ]
     then 
-        mkdir ${OPENSHIFT_TMP_DIR}/cache/
+        mkdir ${OPENSHIFT_TMP_DIR}/${OPENSHIFT_APP_UUID}-cache/
     fi
 
     if [ ! -d ${OPENSHIFT_DATA_DIR}/eggs/ ]
@@ -35,8 +35,8 @@ then
 [buildout]
 extends = buildout.cfg
 eggs-directory = ${OPENSHIFT_DATA_DIR}/eggs/
-download-cache = ${OPENSHIFT_TMP_DIR}/cache/
-extends-cache = ${OPENSHIFT_TMP_DIR}/cache/
+download-cache = ${OPENSHIFT_TMP_DIR}/${OPENSHIFT_APP_UUID}-cache/
+extends-cache = ${OPENSHIFT_TMP_DIR}/${OPENSHIFT_APP_UUID}-cache/
 effective-user = ${OPENSHIFT_APP_UUID}
 log-directory = ${OPENSHIFT_LOG_DIR}
 data-directory = ${OPENSHIFT_DATA_DIR}
