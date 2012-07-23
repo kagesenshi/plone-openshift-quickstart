@@ -1,0 +1,54 @@
+#!/bin/bash
+# This is a simple build script and will be executed on your CI system if 
+# available.  Otherwise it will execute while your application is stopped
+# before the deploy step.  This script gets executed directly, so it
+# could be python, php, ruby, etc.
+
+if [ ! -f ${OPENSHIFT_DATA_DIR}/virtenv/bin/python ]
+then
+    echo "Setting up virtualenv"
+    virtualenv --no-site-packages ${OPENSHIFT_DATA_DIR}/virtenv
+fi
+
+if [ ! -f ${OPENSHIFT_REPO_DIR}/bin/buildout ]
+then
+    pushd ${OPENSHIFT_REPO_DIR}
+
+    # create some dirs
+    if [ ! -d ${OPENSHIFT_TMP_DIR}/cache/ ]
+    then 
+        mkdir ${OPENSHIFT_TMP_DIR}/cache/
+    fi
+
+    if [ ! -d ${OPENSHIFT_DATA_DIR}/eggs/ ]
+    then
+        mkdir ${OPENSHIFT_DATA_DIR}/eggs/ 
+    fi 
+
+    if [ ! -d ${OPENSHIFT_DATA_DIR}/egg-cache/ ]
+    then 
+        mkdir ${OPENSHIFT_DATA_DIR}/egg-cache/
+    fi
+
+    # initialize a buildout.cfg using the environment
+    cat >> openshift-buildout.cfg << EOF
+[buildout]
+extends = buildout.cfg
+eggs-directory = ${OPENSHIFT_DATA_DIR}/eggs/
+download-cache = ${OPENSHIFT_TMP_DIR}/cache/
+extends-cache = ${OPENSHIFT_TMP_DIR}/cache/
+effective-user = ${OPENSHIFT_APP_UUID}
+log-directory = ${OPENSHIFT_LOG_DIR}
+data-directory = ${OPENSHIFT_DATA_DIR}
+http-address = ${OPENSHIFT_INTERNAL_IP}:${OPENSHIFT_INTERNAL_PORT}
+pyeggcache-directory = ${OPENSHIFT_DATA_DIR}/egg-cache/
+host = ${OPENSHIFT_APP_DNS}
+EOF
+
+    # bootstrap
+    ${OPENSHIFT_DATA_DIR}/virtenv/bin/python bootstrap.py
+
+    # build!
+    ./bin/buildout -vvvv -c openshift-buildout.cfg
+    popd
+fi

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Import Environment Variables
+for f in ~/.env/*
+do
+    . $f
+done
+
+if [ -f ${OPENSHIFT_REPO_DIR}/bin/instance ]
+then
+    ${OPENSHIFT_REPO_DIR}/bin/instance stop
+fi
