@@ -50,4 +50,21 @@ to each of the sites. To setup virtual hosting for your Plone site, add an
 entry here:
 ``http://plone-$yournamespace.rhcloud.com/virtual_hosting/manage_edit``
 
+Careful that you might get locked out and unable to access the Zope root
+interface if you added ``plone-$yournamespace.rhcloud.com`` domain mapping in
+the virtual hosting. If you somehow got yourself locked out, do this::
+  
+  rhc-port-forward -a plone
 
+You should see an output that is somewhat like this::
+  
+  Checking available ports...
+  
+  Binding python -> $internalipaddress:8080...
+  
+  Use ctl + c to stop
+
+Take note the IP and port number there and access 
+http://$internalipaddress:8080. You should be able to access the Zope root 
+there. Take care not to add ``$internalipaddress`` into the virtual 
+hosting settings.
