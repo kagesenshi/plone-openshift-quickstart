@@ -10,6 +10,8 @@ groupware collaboration tool. The strengths of Plone are its flexible and
 adaptable workflow, very good security, extensibility, high usability and
 flexibility.
 
+Visit http://plone.org to learn more
+
 Running on OpenShift
 =====================
 
