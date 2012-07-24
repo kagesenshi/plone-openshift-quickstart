@@ -25,7 +25,7 @@ Add this upstream Plone repo::
   git remote add upstream -m master git@github.com:kagesenshi/plone-openshift-quickstart
   git pull -s recursive -X theirs upstream master
 
-Then push the repo upstream (this will take quite a while to finish)::
+Then push the repo to OpenShift (this will take quite a while to finish)::
   
   git push
 
