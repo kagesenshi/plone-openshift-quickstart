@@ -40,7 +40,7 @@ Default login
 --------------
 
 Default admin login is ``admin:OpenShiftAdmin``. Remember to change it 
-here: ``http://plone-$yournamespace.rhcloud.com/acl_users/manage_users``.
+here: ``http://plone-$yournamespace.rhcloud.com/acl_users/manage_main``. 
 
 Virtual hosting
 ---------------
