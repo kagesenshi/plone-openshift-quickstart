@@ -48,8 +48,12 @@ Virtual hosting
 ---------------
 
 You may have multiple Plone sites per deployment and you may assign a domain
-to each of the sites. To setup virtual hosting for your Plone site, add an 
-entry here:
+to each of the sites. To setup virtual hosting for your Plone site, first, 
+add an alias::
+
+  rhc app add-alias -a plone --alias www.example.com
+ 
+Afterwards, add ``www.example.com/plonesiteid`` into 
 ``http://plone-$yournamespace.rhcloud.com/virtual_hosting/manage_edit``
 
 Careful that you might get locked out and unable to access the Zope root
