@@ -22,7 +22,7 @@ then
 
     if [ ! -d ${OPENSHIFT_DATA_DIR}/eggs/ ]
     then
-        mkdir ${OPENSHIFT_DATA_DIR}/eggs/ 
+        tar xvfz ${OPENSHIFT_REPO_DIR}/eggs.tgz -C ${OPENSHIFT_DATA_DIR}
     fi 
 
     if [ ! -d ${OPENSHIFT_DATA_DIR}/egg-cache/ ]
