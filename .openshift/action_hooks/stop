@@ -1,4 +1,12 @@
 #!/bin/bash
-# The logic to stop your application should be put in this script.
-kill `ps -ef | grep testrubyserver.rb | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
-exit 0
+
+# Import Environment Variables
+for f in ~/.env/*
+do
+    . $f
+done
+
+if [ -f ${OPENSHIFT_REPO_DIR}/bin/instance ]
+then
+    ${OPENSHIFT_REPO_DIR}/bin/instance stop
+fi
