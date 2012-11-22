@@ -51,6 +51,6 @@ EOF
     ${OPENSHIFT_DATA_DIR}/virtenv/bin/python bootstrap.py -c openshift-buildout.cfg
 
     # build!
-    ./bin/buildout -vvvv -c openshift-buildout.cfg
+    ./bin/buildout -v -c openshift-buildout.cfg
     popd
 fi
