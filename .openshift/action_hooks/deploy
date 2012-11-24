@@ -42,7 +42,6 @@ effective-user = ${OPENSHIFT_APP_UUID}
 log-directory = ${OPENSHIFT_LOG_DIR}
 data-directory = ${OPENSHIFT_DATA_DIR}
 http-address = ${OPENSHIFT_INTERNAL_IP}:${OPENSHIFT_INTERNAL_PORT}
-pyeggcache-directory = ${OPENSHIFT_DATA_DIR}/egg-cache/
 pyeggcache-directory = ${OPENSHIFT_DATA_DIR}egg-cache/
 host = ${OPENSHIFT_APP_DNS}
 EOF
