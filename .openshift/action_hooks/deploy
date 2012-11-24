@@ -35,14 +35,15 @@ then
     cat >> openshift-buildout.cfg << EOF
 [buildout]
 extends = buildout.cfg
-eggs-directory = ${OPENSHIFT_DATA_DIR}/eggs/
-download-cache = ${OPENSHIFT_TMP_DIR}/${OPENSHIFT_APP_UUID}-cache/
-extends-cache = ${OPENSHIFT_TMP_DIR}/${OPENSHIFT_APP_UUID}-cache/
+eggs-directory = ${OPENSHIFT_DATA_DIR}eggs/
+download-cache = ${OPENSHIFT_TMP_DIR}${OPENSHIFT_APP_UUID}-cache/
+extends-cache = ${OPENSHIFT_TMP_DIR}${OPENSHIFT_APP_UUID}-cache/
 effective-user = ${OPENSHIFT_APP_UUID}
 log-directory = ${OPENSHIFT_LOG_DIR}
 data-directory = ${OPENSHIFT_DATA_DIR}
 http-address = ${OPENSHIFT_INTERNAL_IP}:${OPENSHIFT_INTERNAL_PORT}
 pyeggcache-directory = ${OPENSHIFT_DATA_DIR}/egg-cache/
+pyeggcache-directory = ${OPENSHIFT_DATA_DIR}egg-cache/
 host = ${OPENSHIFT_APP_DNS}
 EOF
 
