@@ -24,7 +24,7 @@ Create a DIY application::
 Add this upstream Plone repo::
   
   cd plone
-  git remote add upstream -m master git@github.com:natea/plone-openshift-quickstart.git
+  git remote add upstream -m master git@github.com:kagesenshi/plone-openshift-quickstart.git
   git pull -s recursive -X theirs upstream master
 
 Then push the repo to OpenShift (this will take quite a while to finish)::
