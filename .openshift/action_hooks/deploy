@@ -32,7 +32,7 @@ then
     fi
 
     # initialize a buildout.cfg using the environment
-    if [ ! -d ${OPENSHIFT_LOG_DIR} ]
+    if [ "x${OPENSHIFT_LOG_DIR}" == "x" ]
     then
         export ${OPENSHIFT_LOG_DIR} = ${OPENSHIFT_DIY_LOG_DIR}
     fi
