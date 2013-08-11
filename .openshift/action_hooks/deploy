@@ -22,7 +22,7 @@ then
 
     if [ ! -d ${OPENSHIFT_DATA_DIR}/eggs/ ]
     then
-        wget https://dl.dropbox.com/u/35595/eggs.tgz -O eggs.tgz 
+        wget http://plone-egg-packages.googlecode.com/files/eggs-plone-openshift-4.2.2-may2013.tgz -O eggs.tgz
         tar xvfz ${OPENSHIFT_REPO_DIR}/eggs.tgz -C ${OPENSHIFT_DATA_DIR}
     fi 
 
