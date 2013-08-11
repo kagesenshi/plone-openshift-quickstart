@@ -51,7 +51,7 @@ host = ${OPENSHIFT_APP_DNS}
 EOF
 
     # bootstrap
-    ${OPENSHIFT_DATA_DIR}/virtenv/bin/python bootstrap.py -c openshift-buildout.cfg
+    ${OPENSHIFT_DATA_DIR}/virtenv/bin/python bootstrap.py -v '2.0.0' -c openshift-buildout.cfg
 
     # build!
     ./bin/buildout -v -c openshift-buildout.cfg
