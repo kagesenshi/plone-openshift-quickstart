@@ -74,3 +74,13 @@ Take note the IP and port number there and access
 http://$internalipaddress:8080. You should be able to access the Zope root 
 there. Take care not to add ``$internalipaddress`` into the virtual 
 hosting settings.
+
+Hot Deploy
+----------
+Have added hot deploy marker file under ``.openshift/markers/hot_deploy``.
+Hot deploy enables changes to take effect without restarting the application
+cartridge. More about hot deploy can be found at: https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/sect-About_Hot_Deployment.html
+
+If you want to stop having hot deploy support, simply just delete the file::
+
+    rm .openshift/markers/hot_deploy
